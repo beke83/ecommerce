@@ -1,0 +1,12 @@
+Create a new nextjs application using "npx create-next-app";
+npm install --leagcy-peer-deps // used to instal already defined 
+dependencies in the package.json.
+
+for fetching data in NextJs you use the getServerSideProps funtion
+ ctrl +  shift + r to trigger a hard reload and cache clearing in the browser
+
+slug: is a unique identifier that belongs to each products.
+
+React context: a single source of data for managing the application
+
+
