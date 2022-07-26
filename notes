@@ -9,4 +9,8 @@ slug: is a unique identifier that belongs to each products.
 
 React context: a single source of data for managing the application
 
+Number one rule in react never mutate the state using the = symbol.
+.splice method is a mutative method(its mutates the state)
+.filter does not mutate the state.
+
 
