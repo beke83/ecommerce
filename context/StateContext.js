@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
+//create the context
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
@@ -28,7 +29,7 @@ export const StateContext = ({ children }) => {
             })
             setCartItems(updatedCartItems);
         }
-        //if item is not in the cart the else statement runs
+        //if item is not in the cart
         else {
             product.quantity = quantity;  //if item not already in the cart update the product quantity
 
@@ -58,16 +59,18 @@ export const StateContext = ({ children }) => {
     const toggleCartItemQuantity = (id, value) => {
         //find the item   
         foundProduct = cartItems.find((item) => item._id === id);
-        //find the index of the items in the items cart array
+        console.log(foundProduct);
+        //find the index of the items in the items cart array you want to update
         index = cartItems.findIndex((product) => product._id === id);
 
         //filter the cartItems to include all of the item, 
         //but dont include the one that is the index we are looking for
         const newCartItems = cartItems.filter((item) => item._id !== id) 
+        console.log(newCartItems);
         
         if (value === 'inc') {
 
-            setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }]);
+            setCartItems([{ ...foundProduct, quantity: foundProduct.quantity + 1 }, ...newCartItems]);
             // creates a new instance of the cartItems by spreading the cart items
             // then add the new product and spread all the ppties of the object
             // then update the quantity of the object. 
